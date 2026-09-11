@@ -523,8 +523,416 @@
   <!-- HOW TO CANCEL -->
   <div class="section">
     <p class="section-title">How to Cancel Your Subscription</p>
-    <p class="section-sub">Follow these steps to stop auto-renewal and billing charg</p>
+    <p class="section-sub">Follow these steps to stop auto-renewal and billing charges</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Locate Your Billing Details</strong>
+          <span>Find your subscription confirmation email or check your bank/card statement for the billing descriptor. Note the amount and billing date.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Contact Support via Live Chat</strong>
+          <span>Use the live chat below or submit the lead form. Provide your registered email and subscription ID for faster processing.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Confirm Cancellation & Stop Auto-Renewal</strong>
+          <span>Our agent will guide you through the cancellation process and confirm that auto-renewal billing has been disabled.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Request Refund (If Eligible)</strong>
+          <span>Once cancelled, submit a refund request if you were charged recently. Our team will assess eligibility and help escalate your claim.</span>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- INFO CARDS -->
+  <div class="section">
+    <div class="info-grid">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon icon-red">❌</div>
+          <span class="card-title">Cancel Subscription</span>
+        </div>
+        <p class="card-body">Stop your antivirus subscription at any time. Our support team helps you terminate the service and ensures no future charges are applied to your payment method.</p>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon icon-yellow">🔄</div>
+          <span class="card-title">Stop Auto-Renewal</span>
+        </div>
+        <p class="card-body">Disable automatic renewal so your subscription doesn't renew at the end of the billing cycle. We'll confirm the setting has been turned off on your account.</p>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon icon-green">💰</div>
+          <span class="card-title">Request a Refund</span>
+        </div>
+        <p class="card-body">If you were recently charged, you may be eligible for a full or partial refund depending on the subscription terms. We help you file and track your refund claim.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAT + FORM -->
+  <div class="section two-col" id="chat-section">
+    <!-- CHAT -->
+    <div>
+      <p class="section-title">Live Agent Chat</p>
+      <p class="section-sub" style="margin-bottom:16px;">Chat with a support specialist now</p>
+      <div id="chat-widget">
+        <div class="chat-header">
+          <div class="chat-agent">
+            <div class="agent-avatar">👩‍💼</div>
+            <div>
+              <div class="agent-name">Support Agent — Sarah</div>
+              <div class="agent-status">● Online — Typically replies in &lt;2 min</div>
+            </div>
+          </div>
+          <div class="chat-badge">LIVE SUPPORT</div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg agent">
+            <div class="msg-bubble">Hi there! 👋 I'm Sarah, your subscription support specialist. I can help you cancel your antivirus plan, stop auto-renewal charges, or process a refund request. How can I assist you today?</div>
+            <div class="msg-time">Just now</div>
+          </div>
+        </div>
+        <div class="chat-quick-btns">
+          <button class="quick-btn" onclick="sendQuick('I want to cancel my subscription')">Cancel Subscription</button>
+          <button class="quick-btn" onclick="sendQuick('Stop auto-renewal charges')">Stop Auto-Renewal</button>
+          <button class="quick-btn" onclick="sendQuick('I want a refund')">Request Refund</button>
+          <button class="quick-btn" onclick="sendQuick('I was charged unexpectedly')">Unexpected Charge</button>
+        </div>
+        <div class="chat-input-area">
+          <input type="text" class="chat-input" id="chatInput" placeholder="Type your message…" onkeydown="if(event.key==='Enter')sendChat()">
+          <button class="chat-send" onclick="sendChat()">
+            <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+        </div>
+      </div>
+      <p style="font-size:0.72rem;color:var(--muted);margin-top:10px;line-height:1.5;">This is a simulated support chat interface. A real agent will follow up via the contact details you provide. By chatting, you consent to our <a href="#policies" style="color:var(--green);">Privacy Policy</a>.</p>
+    </div>
+
+    <!-- LEAD FORM -->
+    <div id="refund-form">
+      <p class="section-title">Submit a Support Request</p>
+      <p class="section-sub" style="margin-bottom:16px;">Get callback or email assistance</p>
+      <div class="lead-form">
+        <p class="form-title">Cancellation & Refund Form</p>
+        <p class="form-sub">Fill in your details and we'll contact you within 1–2 business hours</p>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">First Name <span>*</span></label>
+            <input type="text" class="form-input" placeholder="John" id="fname">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Smith" id="lname">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Email Address <span>*</span></label>
+            <input type="email" class="form-input" placeholder="john@example.com" id="email">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-input" placeholder="+1 (555) 000-0000" id="phone">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Request Type <span>*</span></label>
+            <select class="form-select" id="reqtype">
+              <option value="">— Select Request Type —</option>
+              <option>Cancel Subscription</option>
+              <option>Stop Auto-Renewal</option>
+              <option>Request Refund</option>
+              <option>Unauthorized Charge</option>
+              <option>Billing Dispute</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Subscription / Order ID</label>
+            <input type="text" class="form-input" placeholder="e.g. GRD-123456" id="orderid">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Message / Description <span>*</span></label>
+            <textarea class="form-textarea" placeholder="Describe your issue in detail…" id="message"></textarea>
+          </div>
+        </div>
+        <div class="form-checkbox">
+          <input type="checkbox" id="consent">
+          <label for="consent">I consent to being contacted by phone or email regarding my support request. I have read and agree to the <a href="#policies">Privacy Policy</a>, <a href="#policies">Refund Policy</a>, and <a href="#policies">Terms of Service</a>. I understand this is a third-party support service and not the official software vendor. <span style="color:var(--red);">*</span></label>
+        </div>
+        <div class="form-checkbox">
+          <input type="checkbox" id="tcpa">
+          <label for="tcpa">By checking this box, I consent to receiving calls and SMS messages including via automated dialing systems at the phone number provided for support-related communications. Message &amp; data rates may apply. I can opt out anytime by replying STOP.</label>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Submit Support Request →</button>
+        <div class="form-disclaimer">
+          🔒 Your data is encrypted and secured. We do not sell your personal information.<br>
+          This website is independently operated and not affiliated with the antivirus software company.
+        </div>
+        <div class="success-msg" id="successMsg">
+          ✅ Request submitted successfully! A support specialist will contact you within 1–2 business hours.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- POLICIES -->
+  <div class="section" id="policies">
+    <p class="section-title">Legal Policies</p>
+    <p class="section-sub">Please read our terms, privacy policy, and refund policy carefully</p>
+    <div class="policy-tabs">
+      <button class="policy-tab active" onclick="showPolicy('disclaimer')">Disclaimer</button>
+      <button class="policy-tab" onclick="showPolicy('privacy')">Privacy Policy</button>
+      <button class="policy-tab" onclick="showPolicy('refund')">Refund Policy</button>
+      <button class="policy-tab" onclick="showPolicy('terms')">Terms of Service</button>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="card policy-content active" id="policy-disclaimer">
+      <h3>Website Disclaimer</h3>
+      <p>This website ("Site") is independently owned and operated. The information provided on this Site is for general informational and support assistance purposes only. This Site is <strong>not affiliated with, sponsored by, endorsed by, or officially connected to Guardio™, Guardi Inc., or any of its affiliates, subsidiaries, or partners.</strong></p>
+      <h3>No Official Affiliation</h3>
+      <p>All product names, logos, brand names, and trademarks mentioned on this website are the property of their respective owners. Their use on this website does not imply any affiliation, association, sponsorship, or endorsement by such trademark holders.</p>
+      <h3>Third-Party Service</h3>
+      <p>We are a third-party support service that assists consumers in understanding subscription cancellation processes and how to contact service providers for billing disputes and refund claims. We do not guarantee any specific outcomes, refund amounts, or timelines, as these are determined solely by the subscription service provider or relevant financial institution.</p>
+      <h3>No Guarantee of Results</h3>
+      <p>While we make every effort to provide accurate and up-to-date guidance, we make no warranties or representations regarding the accuracy, reliability, completeness, or timeliness of any information on this Site. We shall not be liable for any losses, damages, or expenses arising from reliance on information provided here.</p>
+      <h3>Advertising Compliance</h3>
+      <p>This website may use Google Ads or other advertising services to reach users searching for subscription cancellation help. All advertising is conducted in compliance with applicable advertising policies, including Google's advertising policies. The nature and limitations of our service are clearly disclosed to all visitors prior to engagement.</p>
+    </div>
+
+    <!-- PRIVACY POLICY -->
+    <div class="card policy-content" id="policy-privacy">
+      <h3>Privacy Policy</h3>
+      <p>Last Updated: January 1, 2025. This Privacy Policy describes how we collect, use, and protect your personal information when you use this website.</p>
+      <h3>Information We Collect</h3>
+      <ul>
+        <li><strong>Contact Information:</strong> Name, email address, phone number provided through forms or chat.</li>
+        <li><strong>Usage Data:</strong> IP address, browser type, pages visited, time spent, referral URLs.</li>
+        <li><strong>Communications:</strong> Chat messages and form submissions you send to us.</li>
+        <li><strong>Device Information:</strong> Device type, operating system, browser version.</li>
+      </ul>
+      <h3>How We Use Your Information</h3>
+      <ul>
+        <li>To respond to your support requests and provide assistance.</li>
+        <li>To contact you via phone or email as consented.</li>
+        <li>To improve website functionality and user experience.</li>
+        <li>To comply with legal obligations.</li>
+        <li>To send service-related communications (never marketing without consent).</li>
+      </ul>
+      <h3>Data Sharing</h3>
+      <p>We do <strong>not sell</strong> your personal information. We may share data with trusted service providers (e.g., CRM platforms, phone providers) strictly to fulfill support requests. We do not share data with advertisers or marketing companies without your explicit consent.</p>
+      <h3>Cookies</h3>
+      <p>We use essential cookies and may use analytics cookies (e.g., Google Analytics). You may disable cookies in your browser settings; however, this may affect functionality. We use Google Ads remarketing tags in compliance with Google's advertising policies.</p>
+      <h3>Your Rights</h3>
+      <p>You have the right to access, correct, or delete your personal data. To exercise these rights, email us at privacy@[yourdomain].com. We will respond within 30 days.</p>
+      <h3>Data Retention</h3>
+      <p>We retain personal data only as long as necessary to fulfill the purpose for which it was collected or as required by law, typically no longer than 24 months.</p>
+      <h3>Children's Privacy</h3>
+      <p>This website is not intended for individuals under the age of 18. We do not knowingly collect data from minors.</p>
+      <h3>Contact</h3>
+      <p>For privacy-related inquiries, contact: privacy@[yourdomain].com</p>
+    </div>
+
+    <!-- REFUND POLICY -->
+    <div class="card policy-content" id="policy-refund">
+      <h3>Refund Policy</h3>
+      <p>Last Updated: January 1, 2025. This policy outlines our approach to assisting with refund requests for third-party antivirus subscription services.</p>
+      <h3>Scope of Service</h3>
+      <p>As a third-party support service, we <strong>do not process refunds directly.</strong> We assist users in understanding the refund eligibility criteria of their software subscription and help them navigate the process to submit refund claims to the original vendor or their financial institution (e.g., bank, credit card company).</p>
+      <h3>General Refund Eligibility (Third-Party Guidance)</h3>
+      <ul>
+        <li>Most antivirus software vendors offer a 30-day money-back guarantee from the original purchase date.</li>
+        <li>Auto-renewal charges may be refundable if disputed within a short window (typically 7–14 days of renewal).</li>
+        <li>Partial refunds may be available for unused subscription periods depending on the vendor's policy.</li>
+        <li>Refund eligibility is determined solely by the software vendor or payment processor — not by us.</li>
+      </ul>
+      <h3>Our Service Fee Policy</h3>
+      <p>Our support assistance services may carry a fee, disclosed upfront before any commitment. Any fee charged is for our support assistance services only and is separate from any refund amount you may receive from the vendor. Our service fee is non-refundable once assistance has been rendered.</p>
+      <h3>Chargebacks & Bank Disputes</h3>
+      <p>If you were charged without authorization or after cancellation, you have the right to initiate a chargeback through your bank or credit card company. We can assist you in understanding this process. We recommend contacting your bank directly for unauthorized charges.</p>
+      <h3>Timelines</h3>
+      <p>Refund processing timelines are determined by the vendor or financial institution, typically 5–10 business days once approved. We cannot guarantee or expedite vendor-side refund timelines.</p>
+      <h3>Contact for Refund Assistance</h3>
+      <p>Submit your refund request using the form on this page or via live chat. We will acknowledge your request within 24 hours on business days.</p>
+    </div>
+
+    <!-- TERMS -->
+    <div class="card policy-content" id="policy-terms">
+      <h3>Terms of Service</h3>
+      <p>Last Updated: January 1, 2025. By accessing and using this website, you agree to these Terms of Service. If you do not agree, please do not use this website.</p>
+      <h3>Nature of Service</h3>
+      <p>This website provides third-party consumer support assistance for software subscription management. We are not an official representative or agent of any antivirus software company. We do not have access to your account on any third-party platform.</p>
+      <h3>User Responsibilities</h3>
+      <ul>
+        <li>You must provide accurate and truthful information in all support requests.</li>
+        <li>You are responsible for verifying any guidance we provide with the official vendor.</li>
+        <li>You agree not to use this website for any unlawful purpose.</li>
+        <li>You must be 18 years of age or older to use this service.</li>
+      </ul>
+      <h3>Limitation of Liability</h3>
+      <p>To the maximum extent permitted by law, this website and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of refunds, subscription charges, or data, resulting from your use of our services or inability to obtain a refund from a third-party vendor.</p>
+      <h3>No Warranties</h3>
+      <p>This website is provided "as is" without warranties of any kind, express or implied. We do not warrant that our services will result in a successful cancellation or refund from the software vendor.</p>
+      <h3>Intellectual Property</h3>
+      <p>All third-party trademarks, logos, and brand names referenced are property of their respective owners. Their use is solely for informational identification purposes and does not constitute endorsement.</p>
+      <h3>Governing Law</h3>
+      <p>These Terms shall be governed by applicable laws. Any disputes shall be resolved through binding arbitration or in a court of competent jurisdiction in the applicable territory.</p>
+      <h3>Changes to Terms</h3>
+      <p>We reserve the right to update these Terms at any time. Continued use of the website after changes constitutes acceptance of the revised Terms.</p>
+      <h3>Contact</h3>
+      <p>For terms-related questions, contact: legal@[yourdomain].com</p>
+    </div>
+  </div>
+
 </main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="text-decoration:none;">
+          <div class="logo-icon">G</div>
+          <span class="logo-text">Guard<span>io</span> Help</span>
+        </a>
+        <p>Independent third-party consumer support service assisting users with antivirus subscription cancellations, auto-renewal stops, and refund request guidance. Not affiliated with any software company.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#chat-section">Cancel Subscription</a>
+        <a href="#chat-section">Stop Auto-Renewal</a>
+        <a href="#refund-form">Request Refund</a>
+        <a href="#chat-section">Billing Dispute</a>
+        <a href="#chat-section">Live Chat Support</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#policies" onclick="showPolicy('disclaimer')">Disclaimer</a>
+        <a href="#policies" onclick="showPolicy('privacy')">Privacy Policy</a>
+        <a href="#policies" onclick="showPolicy('refund')">Refund Policy</a>
+        <a href="#policies" onclick="showPolicy('terms')">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <strong>IMPORTANT LEGAL DISCLAIMER:</strong> This website (the "Site") is an independently operated third-party consumer support platform. It is NOT affiliated with, sponsored by, endorsed by, or in any way officially connected to Guardio™, Guardi Inc., or any of its subsidiaries, affiliates, or partners. All product names, logos, brands, and trademarks are property of their respective owners. References to any third-party products or services are for descriptive purposes only. Our support assistance may involve service fees disclosed prior to engagement. Results are not guaranteed. Refund eligibility is determined by the software vendor or financial institution, not by this website. This site complies with Google LLC's advertising policies. By using this website, you acknowledge you have read and agree to our Terms of Service, Privacy Policy, Refund Policy, and the disclaimers stated herein. For official support, users should also visit the software vendor's official website directly.
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Independent Support Services. All rights reserved. | Not affiliated with Guardio™.</p>
+      <p style="font-size:0.72rem;color:rgba(148,163,184,0.5);">This site is GDPR & CCPA compliant.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ====== CHAT LOGIC ======
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+
+const agentResponses = {
+  'cancel': "I can help you cancel your subscription right away! Could you please provide the email address associated with your account and your subscription/order ID? This will help me locate your account and process the cancellation.",
+  'auto': "Absolutely! I can guide you on how to disable auto-renewal. Once you provide your registered email, I'll walk you through the steps. Would you also like us to send you a confirmation email once auto-renewal is stopped?",
+  'refund': "I'll be happy to help you with a refund request. Please provide your registered email address, the order ID or transaction reference, and the approximate date of charge. Our team will assess your eligibility and guide you through the process.",
+  'charge': "I understand how frustrating unexpected charges can be. Please provide your email address, the charge amount, and the date it appeared on your statement. We'll help you dispute and resolve this as quickly as possible.",
+  'default': "Thank you for reaching out! I'm here to help with cancellations, refund requests, and billing issues. Could you please provide a bit more detail about your concern so I can assist you most effectively?"
+};
+
+function getResponse(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('cancel')) return agentResponses.cancel;
+  if (m.includes('auto') || m.includes('renewal')) return agentResponses.auto;
+  if (m.includes('refund') || m.includes('money')) return agentResponses.refund;
+  if (m.includes('charge') || m.includes('charged') || m.includes('unexpected')) return agentResponses.charge;
+  return agentResponses.default;
+}
+
+function addMsg(text, type) {
+  const now = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+  const div = document.createElement('div');
+  div.className = `msg ${type}`;
+  div.innerHTML = `<div class="msg-bubble">${text}</div><div class="msg-time">${now}</div>`;
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function showTyping() {
+  const t = document.createElement('div');
+  t.className = 'msg agent';
+  t.id = 'typingIndicator';
+  t.innerHTML = `<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+  chatMessages.appendChild(t);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function sendChat() {
+  const val = chatInput.value.trim();
+  if (!val) return;
+  addMsg(val, 'user');
+  chatInput.value = '';
+  showTyping();
+  setTimeout(() => {
+    document.getElementById('typingIndicator')?.remove();
+    addMsg(getResponse(val), 'agent');
+  }, 1400 + Math.random() * 600);
+}
+
+function sendQuick(msg) {
+  addMsg(msg, 'user');
+  showTyping();
+  setTimeout(() => {
+    document.getElementById('typingIndicator')?.remove();
+    addMsg(getResponse(msg), 'agent');
+  }, 1400 + Math.random() * 600);
+}
+
+// ====== FORM SUBMIT ======
+function submitForm() {
+  const fname = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const reqtype = document.getElementById('reqtype').value;
+  const message = document.getElementById('message').value.trim();
+  const consent = document.getElementById('consent').checked;
+
+  if (!fname || !email || !reqtype || !message || !consent) {
+    alert('Please fill in all required fields and accept the consent checkbox.');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  document.getElementById('successMsg').style.display = 'block';
+  document.querySelector('.form-submit').disabled = true;
+  document.querySelector('.form-submit').textContent = 'Request Submitted ✓';
+  document.querySelector('.form-submit').style.background = '#00a846';
+}
+
+// ====== POLICY TABS ======
+function showPolicy(id) {
+  document.querySelectorAll('.policy-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.policy-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('policy-' + id).classList.add('active');
+  event.target.classList.add('active');
+  document.getElementById('policies').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// Scroll to chat if hash
+if (window.location.hash === '#chat-section') {
+  setTimeout(() => document.getElementById('chat-section').scrollIntoView({behavior:'smooth'}), 300);
+}
+</script>
 </body>
 </html>
