@@ -626,64 +626,64 @@
     <div id="refund-form">
       <p class="section-title">Submit a Support Request</p>
       <p class="section-sub" style="margin-bottom:16px;">Get callback or email assistance</p>
-      <div class="lead-form">
+      <form class="lead-form" id="lead-form-inner">
         <p class="form-title">Cancellation & Refund Form</p>
         <p class="form-sub">Fill in your details and we'll contact you within 1–2 business hours</p>
         <div class="form-grid">
           <div class="form-group">
-            <label class="form-label">First Name <span>*</span></label>
-            <input type="text" class="form-input" placeholder="John" id="fname">
+            <label class="form-label" for="fname">First Name <span>*</span></label>
+            <input type="text" class="form-input" placeholder="John" id="fname" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Last Name <span>*</span></label>
-            <input type="text" class="form-input" placeholder="Smith" id="lname">
+            <label class="form-label" for="lname">Last Name <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Smith" id="lname" required>
           </div>
           <div class="form-group full">
-            <label class="form-label">Email Address <span>*</span></label>
-            <input type="email" class="form-input" placeholder="john@example.com" id="email">
+            <label class="form-label" for="email">Email Address <span>*</span></label>
+            <input type="email" class="form-input" placeholder="john@example.com" id="email" required>
           </div>
           <div class="form-group full">
-            <label class="form-label">Phone Number</label>
+            <label class="form-label" for="phone">Phone Number</label>
             <input type="tel" class="form-input" placeholder="+1 (555) 000-0000" id="phone">
           </div>
           <div class="form-group full">
-            <label class="form-label">Request Type <span>*</span></label>
-            <select class="form-select" id="reqtype">
+            <label class="form-label" for="reqtype">Request Type <span>*</span></label>
+            <select class="form-select" id="reqtype" required>
               <option value="">— Select Request Type —</option>
-              <option>Cancel Subscription</option>
-              <option>Stop Auto-Renewal</option>
-              <option>Request Refund</option>
-              <option>Unauthorized Charge</option>
-              <option>Billing Dispute</option>
-              <option>Other</option>
+              <option value="Cancel Subscription">Cancel Subscription</option>
+              <option value="Stop Auto-Renewal">Stop Auto-Renewal</option>
+              <option value="Request Refund">Request Refund</option>
+              <option value="Unauthorized Charge">Unauthorized Charge</option>
+              <option value="Billing Dispute">Billing Dispute</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <div class="form-group full">
-            <label class="form-label">Subscription / Order ID</label>
+            <label class="form-label" for="orderid">Subscription / Order ID</label>
             <input type="text" class="form-input" placeholder="e.g. GRD-123456" id="orderid">
           </div>
           <div class="form-group full">
-            <label class="form-label">Message / Description <span>*</span></label>
-            <textarea class="form-textarea" placeholder="Describe your issue in detail…" id="message"></textarea>
+            <label class="form-label" for="message">Message / Description <span>*</span></label>
+            <textarea class="form-textarea" placeholder="Describe your issue in detail…" id="message" required></textarea>
           </div>
         </div>
         <div class="form-checkbox">
-          <input type="checkbox" id="consent">
+          <input type="checkbox" id="consent" required>
           <label for="consent">I consent to being contacted by phone or email regarding my support request. I have read and agree to the <a href="#policies">Privacy Policy</a>, <a href="#policies">Refund Policy</a>, and <a href="#policies">Terms of Service</a>. I understand this is a third-party support service and not the official software vendor. <span style="color:var(--red);">*</span></label>
         </div>
         <div class="form-checkbox">
           <input type="checkbox" id="tcpa">
           <label for="tcpa">By checking this box, I consent to receiving calls and SMS messages including via automated dialing systems at the phone number provided for support-related communications. Message &amp; data rates may apply. I can opt out anytime by replying STOP.</label>
         </div>
-        <button class="form-submit" onclick="submitForm()">Submit Support Request →</button>
+        <button type="submit" class="form-submit">Submit Support Request →</button>
         <div class="form-disclaimer">
           🔒 Your data is encrypted and secured. We do not sell your personal information.<br>
           This website is independently operated and not affiliated with the antivirus software company.
         </div>
-        <div class="success-msg" id="successMsg">
+        <div class="success-msg" id="successMsg" style="display: none;">
           ✅ Request submitted successfully! A support specialist will contact you within 1–2 business hours.
         </div>
-      </div>
+      </form>
     </div>
   </div>
 
@@ -899,26 +899,82 @@ function sendQuick(msg) {
 }
 
 // ====== FORM SUBMIT ======
-function submitForm() {
-  const fname = document.getElementById('fname').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const reqtype = document.getElementById('reqtype').value;
-  const message = document.getElementById('message').value.trim();
-  const consent = document.getElementById('consent').checked;
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("lead-form-inner");
 
-  if (!fname || !email || !reqtype || !message || !consent) {
-    alert('Please fill in all required fields and accept the consent checkbox.');
-    return;
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-  document.getElementById('successMsg').style.display = 'block';
-  document.querySelector('.form-submit').disabled = true;
-  document.querySelector('.form-submit').textContent = 'Request Submitted ✓';
-  document.querySelector('.form-submit').style.background = '#00a846';
-}
+  if (!form) return;
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const successMsg = document.getElementById("successMsg");
+
+    const fname = document.getElementById("fname").value.trim();
+    const lname = document.getElementById("lname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const reqtype = document.getElementById("reqtype").value;
+    const orderid = document.getElementById("orderid").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const consent = document.getElementById("consent").checked;
+    const tcpa = document.getElementById("tcpa").checked;
+
+    if (!fname || !lname || !email || !reqtype || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    if (!consent) {
+      alert("You must agree to the Terms & Privacy Policy to proceed.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = "Submitting…";
+    if (successMsg) successMsg.style.display = "none";
+
+    try {
+      const response = await fetch("https://cc-crm.test/api/leads", {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer YOUR_TOKEN_HERE",
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: `${fname} ${lname}`.trim(),
+          email: email,
+          phone: phone,
+          request_type: reqtype,
+          order_id: orderid,
+          reqtype: reqtype,
+          message: message,
+          tcpa_consent: tcpa,
+          page_url: window.location.href,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || "Request failed");
+      }
+      form.reset();
+      submitBtn.textContent = "Request Submitted ✓";
+
+      if (successMsg) {
+        successMsg.style.display = "block";
+      }
+    } catch (err) {
+      console.error("Form Submission Error:", err);
+      alert("Sorry, something went wrong submitting your request. Please try again or contact support.");
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+    }
+  });
+});
 
 // ====== POLICY TABS ======
 function showPolicy(id) {
