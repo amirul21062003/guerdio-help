@@ -934,5 +934,45 @@ if (window.location.hash === '#chat-section') {
   setTimeout(() => document.getElementById('chat-section').scrollIntoView({behavior:'smooth'}), 300);
 }
 </script>
+
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a328f4d8174d71d46bec21e/1jranvi8g';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.addEventListener("click", (event) => {
+          // Find the closest target matching either selector
+          const targetElement = event.target.closest(".customChatOpenButton a, .cc_chat_btn");
+  
+          if (!targetElement) return;
+          event.preventDefault();
+  
+          if (
+              typeof window.Tawk_API === "object" &&
+              window.Tawk_API !== null &&
+              typeof window.Tawk_API.maximize === "function"
+          ) {
+              try {
+                  window.Tawk_API.maximize();
+              } catch (err) {
+                  console.error("Failed to maximize Tawk chat widget:", err);
+              }
+          } else {
+              console.warn("Tawk_API is not available or fully loaded yet.");
+          }
+      });
+  });
+  </script>
 </body>
 </html>
